@@ -34,11 +34,11 @@ Mục tiêu của phần mềm:
 
 ## 👥 Thành viên thực hiện
 
-| STT | Họ và tên | Mã số sinh viên | Vai trò (Dự kiến) |
+| STT | Họ và tên | Mã số sinh viên | Vai trò (Dự kiến) | Email github |
 |:---:|:---|:---|:---|:---|
-| 1 | **Lữ Võ Hoàng Phúc** | 31241025389 | Nhóm trưởng / Backend / Database | @luphuc321gmail.com |
-| 2 | **Nguyễn Hoàng Anh** | 31241021759 | Frontend / UI Design | @nguyenhoanganh88990@gmail.com  |
-| 3 | **Từ Trương Thanh Trúc** | 31241023563 | Tester / Documentation | @tructhanh6706@gmail.com  |
+| 1 | **Lữ Võ Hoàng Phúc** | 31241025389 | Nhóm trưởng / Backend / Database | @luphuc321@gmail.com |
+| 2 | **Nguyễn Hoàng Anh** | 31241021759 | Frontend / UI Design | @nguyenhoanganh88990@gmail.com |
+| 3 | **Từ Trương Thanh Trúc** | 31241023563 | Tester / Documentation | @tructhanh6706@gmail.com |
 
 ---
 
