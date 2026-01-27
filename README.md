@@ -1,6 +1,6 @@
 <div align="center">
 
-# Group 7 - Logistic Management System
+# Group 5 - Logistic Management System
 ### Đồ án cuối kỳ: Lập trình Hướng đối tượng (OOP)
 
 ![Language](https://img.shields.io/badge/Language-C%23-blue)
