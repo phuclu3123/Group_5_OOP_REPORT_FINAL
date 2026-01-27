@@ -40,8 +40,6 @@ Mục tiêu của phần mềm:
 | 2 | **Nguyễn Hoàng Anh** | 31241021759 | Frontend / UI Design |
 | 3 | **Từ Trương Thanh Trúc** | 31241023563 | Tester / Documentation |
 
-*(Lưu ý: Bạn hãy cập nhật thêm MSSV và vai trò cụ thể cho từng bạn nhé)*
-
 ---
 
 ## 🛠 Công nghệ sử dụng
