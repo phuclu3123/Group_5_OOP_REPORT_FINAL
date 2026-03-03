@@ -1,11 +1,10 @@
 using System;
-using Cuoi_ky_OOP.Models.Enums;
+using Cuoi_ky_OOP.Models.Common;
 
 namespace Cuoi_ky_OOP.Models.Actors
 {
     public abstract class Person
     {
-        // Properties with protected setters to respect encapsulation while allowing read access
         public string Id { get; protected set; }
         public string FullName { get; protected set; }
         public string PhoneNumber { get; protected set; }
@@ -25,6 +24,52 @@ namespace Cuoi_ky_OOP.Models.Actors
             BirthDay = birthDay;
             Gender = gender;
             AccountID = accountId;
+        }
+
+        // Constructor khong tham so cho XML serialization
+        protected Person() { }
+
+        // Cap nhat so dien thoai
+        public void UpdatePhoneNumber(string newPhone)
+        {
+            PhoneNumber = newPhone;
+        }
+
+        // Cap nhat email
+        public void UpdateEmail(string newEmail)
+        {
+            Email = newEmail;
+        }
+
+        // Cap nhat dia chi
+        public void UpdateAddress(string newAddress)
+        {
+            Address = newAddress;
+        }
+
+        // Tinh tuoi
+        public int GetAge()
+        {
+            int age = DateTime.Now.Year - BirthDay.Year;
+            if (DateTime.Now.DayOfYear < BirthDay.DayOfYear)
+            {
+                age--;
+            }
+            return age;
+        }
+
+        // Lay thong tin co ban
+        public virtual string GetInfo()
+        {
+            return "[Person] ID: " + Id + " | Name: " + FullName + "\n" +
+                   "  Phone: " + PhoneNumber + " | Email: " + Email + "\n" +
+                   "  Address: " + Address + "\n" +
+                   "  Birthday: " + BirthDay.ToString("dd/MM/yyyy") + " | Age: " + GetAge() + " | Gender: " + Gender;
+        }
+
+        public override string ToString()
+        {
+            return GetInfo();
         }
     }
 }
