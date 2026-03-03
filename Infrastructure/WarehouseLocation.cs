@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Group_OOP_FINAL.Infrastructure
 {
-    public class WarehouseLocation : ITrackble
+    public class WarehouseLocation : ITrackable
     {
         public string LocationID { get; private set; }
         public string WarehouseID { get; private set; }

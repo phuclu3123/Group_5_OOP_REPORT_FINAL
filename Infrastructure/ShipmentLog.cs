@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Group_OOP_FINAL.Infrastructure
 {
-    public class ShipmentLog
+    public class ShipmentLog : ITrackable
     {
         //Properties
         public string LogID { get; private set; }
