@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Group_OOP_FINAL.Infrastructure
 {
-    public class Warehouse
+    public class Warehouse : ITrackable
     {
         public string WarehouseId { get; set; }
         public double Capacity { get; set; }
