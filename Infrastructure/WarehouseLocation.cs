@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using Cuoi_ky_OOP.Models.Common;
+using Cuoi_ky_OOP.Models.Interfaces;
 
-namespace Group_OOP_FINAL.Infrastructure
+namespace Cuoi_ky_OOP.Models.Infrastructure
 {
     public class WarehouseLocation : ITrackable
     {
@@ -20,47 +20,74 @@ namespace Group_OOP_FINAL.Infrastructure
             ZoneType = zoneType;
             MaxWeight = maxWeight;
             IsAvailable = true;
-
-            if (string.IsNullOrWhiteSpace(locationId))
-                throw new ArgumentException("LocationID cannot be empty.");
-
-            if (string.IsNullOrWhiteSpace(warehouseId))
-                throw new ArgumentException("WarehouseID cannot be empty.");
-
-            if (maxWeight <= 0)
-                throw new ArgumentException("MaxWeight must be greater than 0.");
-
         }
-        public WarehouseLocation() { }
 
-        // ===== BUSINESS METHODS =====
+        // Constructor khong tham so cho XML serialization
+        public WarehouseLocation() 
+        { 
+            LocationID = null!;
+            WarehouseID = null!;
+        }
+
+        // ===== ITrackable =====
+        public string GetCurrentStatus()
+        {
+            if (IsAvailable) return "Available";
+            return "Occupied";
+        }
+
+        public string GetTrackingInfo()
+        {
+            return GetLocationInfo();
+        }
+
+        // Danh dau vi tri da su dung
         public void Occupy()
         {
-            if (!IsAvailable)
-                throw new InvalidOperationException("Location is already occupied.");
-
             IsAvailable = false;
         }
+
+        // Giai phong vi tri
         public void Release()
         {
-            if (IsAvailable)
-                throw new InvalidOperationException("Location is already free.");
-
             IsAvailable = true;
         }
 
-        public bool CanStore(double weight) =>
-            IsAvailable && weight > 0 && weight <= MaxWeight;
-
-        public string GetLocationInfo()
+        // Doi trang thai
+        public void ToggleAvailability()
         {
-            string availableText = IsAvailable ? "Yes" : "No";
-
-            return $"[Location] ID: {LocationID} | Warehouse: {WarehouseID}\n" +
-                   $"  Zone: {ZoneType} | Max Weight: {MaxWeight}kg\n" +
-                   $"  Available: {availableText}";
+            if (IsAvailable)
+            {
+                IsAvailable = false;
+            }
+            else
+            {
+                IsAvailable = true;
+            }
         }
 
-        public override string ToString() => GetLocationInfo();
+        // Kiem tra co chua duoc khoi luong nay khong
+        public bool CanStore(double weight)
+        {
+            return IsAvailable && weight <= MaxWeight;
+        }
+
+        // Lay thong tin vi tri
+        public string GetLocationInfo()
+        {
+            string availableText = "No";
+            if (IsAvailable)
+            {
+                availableText = "Yes";
+            }
+            return "[Location] ID: " + LocationID + " | Warehouse: " + WarehouseID + "\n" +
+                   "  Zone: " + ZoneType + " | Max Weight: " + MaxWeight + "kg\n" +
+                   "  Available: " + availableText;
+        }
+
+        public override string ToString()
+        {
+            return GetLocationInfo();
+        }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using Cuoi_ky_OOP.Models.Common;
+using Cuoi_ky_OOP.Models.Interfaces;
 
-namespace Group_OOP_FINAL.Infrastructure
+namespace Cuoi_ky_OOP.Models.Infrastructure
 {
-    public abstract class Vehicle : ITrackable
+    public class Vehicle : ITrackable
     {
         public string VehicleID { get; private set; }
         public VehicleType VehicleType { get; private set; }
@@ -23,79 +23,105 @@ namespace Group_OOP_FINAL.Infrastructure
             VehicleType = vehicleType;
             MaxLoadWeight = maxLoadWeight;
             CargoVolume = cargoVolume;
-            Dimensions = dimensions ?? "N/A";
+            Dimensions = dimensions;
             IsRefrigerated = isRefrigerated;
             CurrentOdometer = 0;
             FuelLevel = 100;
-            Status = VehicleStatus.Ready; 
-            
-            if (string.IsNullOrWhiteSpace(vehicleId))
-                throw new ArgumentException("VehicleID cannot be empty.");
-
-            if (maxLoadWeight <= 0)
-                throw new ArgumentException("MaxLoadWeight must be greater than 0.");
-
-            if (cargoVolume <= 0)
-                throw new ArgumentException("CargoVolume must be greater than 0.");
+            Status = VehicleStatus.Ready;
         }
 
-
-        public Vehicle() { }
+        // Constructor khong tham so cho XML serialization
+        public Vehicle() 
+        { 
+            VehicleID = null!;
+            Dimensions = null!;
+        }
 
         // ===== ITrackable =====
-        public string GetCurrentStatus() => Status.ToString();
+        public string GetCurrentStatus()
+        {
+            return Status.ToString();
+        }
 
         public string GetTrackingInfo()
         {
-            string refrigeratedText = IsRefrigerated ? "Yes" : "No";
-
-            return $"[Tracking Vehicle] {VehicleID} ({VehicleType})\n" +
-                   $"  Status: {Status} | Fuel: {FuelLevel}%\n" +
-                   $"  Odometer: {CurrentOdometer}km | Refrigerated: {refrigeratedText}";
+            string refrigeratedText = "No";
+            if (IsRefrigerated)
+            {
+                refrigeratedText = "Yes";
+            }
+            return "[Tracking Vehicle] " + VehicleID + " (" + VehicleType + ")\n" +
+                   "  Status: " + Status + " | Fuel: " + FuelLevel + "%" + "\n" +
+                   "  Odometer: " + CurrentOdometer + "km | Refrigerated: " + refrigeratedText;
         }
 
-        // ===== BUSINESS METHODS =====
+        // ===== VEHICLE METHODS =====
 
         public void UpdateStatus(VehicleStatus newStatus)
         {
-            if (Status == VehicleStatus.Maintenance && newStatus == VehicleStatus.InTransit)
-                throw new InvalidOperationException("Vehicle under maintenance cannot go to transit.");
-
             Status = newStatus;
         }
 
         public void UpdateFuelLevel(double newLevel)
         {
-            FuelLevel = Math.Clamp(newLevel, 0, 100);
+            if (newLevel < 0)
+            {
+                FuelLevel = 0;
+            }
+            else if (newLevel > 100)
+            {
+                FuelLevel = 100;
+            }
+            else
+            {
+                FuelLevel = newLevel;
+            }
         }
 
         public void UpdateOdometer(double km)
         {
             if (km > 0)
+            {
                 CurrentOdometer += km;
+            }
         }
 
-        public bool CanCarry(double weight) =>
-            weight <= MaxLoadWeight && Status == VehicleStatus.Ready;
+        public bool CanCarry(double weight)
+        {
+            return weight <= MaxLoadWeight && Status == VehicleStatus.Ready;
+        }
 
-        public bool IsAvailable() =>
-            Status == VehicleStatus.Ready;
+        public bool IsAvailable()
+        {
+            return Status == VehicleStatus.Ready;
+        }
 
-        public void SendToMaintenance() =>
+        public void SendToMaintenance()
+        {
             Status = VehicleStatus.Maintenance;
+        }
 
-        public void CompleteMaintenance() =>
+        public void CompleteMaintenance()
+        {
             Status = VehicleStatus.Ready;
+        }
 
         public string GetVehicleInfo()
         {
-            string refrigeratedText = IsRefrigerated ? "Yes" : "No";
-
-            return $"[Vehicle] ID: {VehicleID} | Type: {VehicleType}\n" +
-                   $"  Max Load: {MaxLoadWeight}kg | Volume: {CargoVolume}m3 | Dim: {Dimensions}\n" +
-                   $"  Odometer: {CurrentOdometer}km | Fuel: {FuelLevel}%\n" +
-                   $"  Refrigerated: {refrigeratedText} | Status: {Status}";
+            string refrigeratedText = "No";
+            if (IsRefrigerated)
+            {
+                refrigeratedText = "Yes";
+            }
+            return "[Vehicle] ID: " + VehicleID + " | Type: " + VehicleType + "\n" +
+                   "  Max Load: " + MaxLoadWeight + "kg | Volume: " + CargoVolume + "m3 | Dim: " + Dimensions + "\n" +
+                   "  Odometer: " + CurrentOdometer + "km | Fuel: " + FuelLevel + "%\n" +
+                   "  Refrigerated: " + refrigeratedText + " | Status: " + Status;
         }
-        public override string ToString() => GetVehicleInfo();
+
+        public override string ToString()
+        {
+            return GetVehicleInfo();
+        }
     }
 }
