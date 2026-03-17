@@ -55,20 +55,20 @@ Mục tiêu của phần mềm:
 ## 🚀 Các chức năng chính
 
 ### 1. Quản lý Đơn hàng (Orders)
-* Tạo mới, sửa đổi và hủy đơn vận chuyển.
+* Tạo mới, sửa đổi và cập nhật các đơn vận chuyển.
 * Tính toán cước phí tự động dựa trên khối lượng và khoảng cách.
-* Cập nhật trạng thái: *Đang xử lý -> Đang giao -> Đã giao / Hoàn trả*.
+* Cập nhật trạng thái: *Đang xử lý -> Đang vận chuyển -> Đã nhận / Hoàn trả*.
 
 ### 2. Quản lý Kho bãi (Warehousing)
 * Nhập/Xuất hàng hóa.
 * Kiểm soát tồn kho và vị trí lưu trữ.
 
 ### 3. Quản lý Nhân sự & Khách hàng
-* Phân quyền quản trị viên (Admin) và nhân viên (Staff).
-* Lưu trữ thông tin khách hàng và lịch sử giao dịch.
+* Phân quyền quản trị viên (Admin) và nhân viên (Staff) - sử lý dữ liệu 2 luồng.
+* Lưu trữ thông tin khách hàng và lịch sử các giao dịch.
 
 ### 4. Báo cáo & Thống kê
-* Thống kê doanh thu theo tháng/quý.
+* Thống kê doanh thu theo tháng/quý (biểu đồ).
 * Báo cáo hiệu suất giao hàng.
 
 ---
