@@ -4,7 +4,7 @@ using Cuoi_ky_OOP.Models.Interfaces;
 
 namespace Cuoi_ky_OOP.Models.Infrastructure
 {
-    public class Vehicle : ITrackable
+    public class Vehicle : ITrackable  
     {
         public string VehicleID { get; private set; }
         public VehicleType VehicleType { get; private set; }

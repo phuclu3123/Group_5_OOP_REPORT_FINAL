@@ -4,7 +4,7 @@ namespace Cuoi_ky_OOP.Models.Infrastructure
 {
     public class VehicleAssignment
     {
-        public string AssignmentID { get; private set; }
+        public string AssignmentID { get; private set; }  
         public string DriverID { get; private set; }
         public string VehicleID { get; private set; }
         public DateTime StartTime { get; private set; }

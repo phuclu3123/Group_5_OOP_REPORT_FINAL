@@ -4,7 +4,7 @@ using Cuoi_ky_OOP.Models.Interfaces;
 
 namespace Cuoi_ky_OOP.Models.Infrastructure
 {
-    public class Warehouse : IReportable, ITrackable
+    public class Warehouse : IReportable, ITrackable  
     {
         public string WarehouseID { get; private set; }
         public string Name { get; private set; }

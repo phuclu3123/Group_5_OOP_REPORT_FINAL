@@ -26,7 +26,7 @@ namespace Group_OOP_FINAL.Infrastructure
 
             EquipmentID = equipmentID;
             Type = type;
-            WarehouseID = warehouseID;
+            WarehouseID = warehouseID;   
             Status = status;
         }
 
