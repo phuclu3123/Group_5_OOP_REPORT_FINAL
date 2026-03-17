@@ -10,6 +10,9 @@ namespace Cuoi_ky_OOP.Models.Actors
         public string LicenseType { get; private set; }
         public DriverStatus DriverStatus { get; private set; }
         public GeoPoint CurrentLocation { get; private set; }
+        
+        // Association: 1 Driver co the lai nhieu Vehicle (1..*)
+        public List<Infrastructure.Vehicle> AssignedVehicles { get; private set; }
 
         // Thuoc tinh de tinh luong
         public int DeliveryCount { get; private set; }
@@ -25,9 +28,18 @@ namespace Cuoi_ky_OOP.Models.Actors
             LicenseType = licenseType;
             DriverStatus = DriverStatus.Available;
             CurrentLocation = new GeoPoint(0, 0);
+            AssignedVehicles = new List<Infrastructure.Vehicle>();
             DeliveryCount = 0;
             BonusPerDelivery = 50000m;
             FuelAllowance = 1500000m;
+        }
+
+        public void AddAssignedVehicle(Infrastructure.Vehicle vehicle)
+        {
+            if (vehicle != null && !AssignedVehicles.Contains(vehicle))
+            {
+                AssignedVehicles.Add(vehicle);
+            }
         }
 
         // Constructor khong tham so cho XML serialization
