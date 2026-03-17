@@ -6,14 +6,14 @@ using Cuoi_ky_OOP.Models.Common;
 
 namespace Group_OOP_FINAL.Infrastructure
 {
-    public class Equipment : ITrackable
+    public class MaintenanceLog : ITrackable
     {
         public string EquipmentID { get; }
         public EquipmentType Type { get; }
         public string WarehouseID { get; private set; }
         public EquipmentStatus Status { get; private set; }
 
-        public Equipment(string equipmentID,
+        public MaintenanceLog(string equipmentID,
                          EquipmentType type,
                          string warehouseID,
                          EquipmentStatus status)
@@ -31,7 +31,7 @@ namespace Group_OOP_FINAL.Infrastructure
         }
 
         // Constructor cho serialization
-        public Equipment()
+        public MaintenanceLog()
         {
             EquipmentID = null!;
             WarehouseID = null!;
