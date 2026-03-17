@@ -26,13 +26,13 @@ namespace Group_OOP_FINAL.Infrastructure
 
             EquipmentID = equipmentID;
             Type = type;
-            WarehouseID = warehouseID;   
+            WarehouseID = warehouseID;
             Status = status;
         }
 
         // Constructor cho serialization
-        public Equipment() 
-        { 
+        public Equipment()
+        {
             EquipmentID = null!;
             WarehouseID = null!;
         }
@@ -67,6 +67,9 @@ namespace Group_OOP_FINAL.Infrastructure
             return Status == EquipmentStatus.Active;
         }
 
-        public override string ToString() => GetTrackingInfo();
+        public override string ToString()
+        {
+            return GetTrackingInfo();
+        }
     }
 }

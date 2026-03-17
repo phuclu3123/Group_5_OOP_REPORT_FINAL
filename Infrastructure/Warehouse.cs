@@ -1,10 +1,11 @@
 ﻿using System;
 using Cuoi_ky_OOP.Models.Common;
 using Cuoi_ky_OOP.Models.Interfaces;
+using Cuoi_ky_OOP.Models.Actors;
 
 namespace Cuoi_ky_OOP.Models.Infrastructure
 {
-    public class Warehouse : IReportable, ITrackable  
+    public class Warehouse : IReportable, ITrackable
     {
         public string WarehouseID { get; private set; }
         public string Name { get; private set; }
@@ -14,10 +15,11 @@ namespace Cuoi_ky_OOP.Models.Infrastructure
         public double TotalCapacity { get; private set; }
         public double UsedCapacity { get; private set; }
         public string OperatingHours { get; private set; }
-        public string ManagerID { get; private set; }
+        // Association: Tham chieu kieu doi tuong (Reference object) de the hien lien ket thay vi chi luu chuoi ID
+        public WarehouseStaff Manager { get; private set; }
 
         public Warehouse(string warehouseId, string name, string address, GeoPoint coordinate,
-                         WarehouseType type, double totalCapacity, string operatingHours, string managerId)
+                         WarehouseType type, double totalCapacity, string operatingHours, WarehouseStaff manager)
         {
             WarehouseID = warehouseId;
             Name = name;
@@ -27,18 +29,18 @@ namespace Cuoi_ky_OOP.Models.Infrastructure
             TotalCapacity = totalCapacity;
             UsedCapacity = 0;
             OperatingHours = operatingHours;
-            ManagerID = managerId;
+            Manager = manager;
         }
 
         // Constructor khong tham so cho XML serialization
-        public Warehouse() 
-        { 
+        public Warehouse()
+        {
             WarehouseID = null!;
             Name = null!;
             Address = null!;
             Coordinate = default;
             OperatingHours = null!;
-            ManagerID = null!;
+            Manager = null!;
         }
 
         // ===== IReportable =====
@@ -54,7 +56,7 @@ namespace Cuoi_ky_OOP.Models.Infrastructure
                    "  Suc chua: " + UsedCapacity + "/" + TotalCapacity + " (" + usagePercent.ToString("F1") + "%)\n" +
                    "  Con trong: " + availableCapacity + "\n" +
                    "  Gio hoat dong: " + OperatingHours + "\n" +
-                   "  Quan ly: " + ManagerID + "\n" +
+                   "  Quan ly: " + (Manager != null ? Manager.FullName : "Chua gan") + "\n" +
                    "=======================================";
         }
 
@@ -105,9 +107,9 @@ namespace Cuoi_ky_OOP.Models.Infrastructure
             OperatingHours = newHours;
         }
 
-        public void UpdateManager(string newManagerId)
+        public void UpdateManager(WarehouseStaff newManager)
         {
-            ManagerID = newManagerId;
+            Manager = newManager;
         }
 
         public double GetUsagePercentage()
@@ -124,7 +126,7 @@ namespace Cuoi_ky_OOP.Models.Infrastructure
             return "[Warehouse] ID: " + WarehouseID + " | Name: " + Name + "\n" +
                    "  Address: " + Address + " | Coordinate: " + Coordinate + "\n" +
                    "  Type: " + Type + " | Capacity: " + UsedCapacity + "/" + TotalCapacity + " (" + GetUsagePercentage().ToString("F1") + "%)\n" +
-                   "  Hours: " + OperatingHours + " | Manager: " + ManagerID;
+                   "  Hours: " + OperatingHours + " | Manager: " + (Manager != null ? Manager.StaffID : "None");
         }
 
         public override string ToString()

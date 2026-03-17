@@ -4,7 +4,7 @@ using Cuoi_ky_OOP.Models.Interfaces;
 
 namespace Cuoi_ky_OOP.Models.Infrastructure
 {
-    public class Vehicle : ITrackable  
+    public class Vehicle : ITrackable
     {
         public string VehicleID { get; private set; }
         public VehicleType VehicleType { get; private set; }
@@ -15,6 +15,12 @@ namespace Cuoi_ky_OOP.Models.Infrastructure
         public bool IsRefrigerated { get; private set; }
         public double FuelLevel { get; private set; }
         public VehicleStatus Status { get; private set; }
+
+        // Association: 1 Vehicle co the duoc phan cong cho nhieu Driver lai (1..*)
+        public List<Actors.Driver> AllowedDrivers { get; private set; }
+
+        // Aggregation: Whole-part relationship. Part can exist without Whole. (Engine can exist independently of Vehicle)
+        public Engine VehicleEngine { get; private set; }
 
         public Vehicle(string vehicleId, VehicleType vehicleType, double maxLoadWeight,
                        double cargoVolume, string dimensions, bool isRefrigerated)
@@ -28,11 +34,26 @@ namespace Cuoi_ky_OOP.Models.Infrastructure
             CurrentOdometer = 0;
             FuelLevel = 100;
             Status = VehicleStatus.Ready;
+            AllowedDrivers = new List<Actors.Driver>();
+        }
+
+        public void AddAllowedDriver(Actors.Driver driver)
+        {
+            if (driver != null && !AllowedDrivers.Contains(driver))
+            {
+                AllowedDrivers.Add(driver);
+            }
+        }
+
+        // Method to demonstrate Aggregation: attaching an existing part to the whole
+        public void InstallEngine(Engine engine)
+        {
+            VehicleEngine = engine;
         }
 
         // Constructor khong tham so cho XML serialization
-        public Vehicle() 
-        { 
+        public Vehicle()
+        {
             VehicleID = null!;
             Dimensions = null!;
         }

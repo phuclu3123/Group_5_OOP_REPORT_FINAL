@@ -5,8 +5,8 @@ using Cuoi_ky_OOP.Models.Interfaces;
 namespace Cuoi_ky_OOP.Models.Infrastructure
 {
     public class WarehouseLocation : ITrackable
-    { 
-        public string LocationID { get; private set; }  
+    {
+        public string LocationID { get; private set; }
         public string WarehouseID { get; private set; }
         public ZoneType ZoneType { get; private set; }
         public double MaxWeight { get; private set; }
@@ -23,8 +23,8 @@ namespace Cuoi_ky_OOP.Models.Infrastructure
         }
 
         // Constructor khong tham so cho XML serialization
-        public WarehouseLocation() 
-        { 
+        public WarehouseLocation()
+        {
             LocationID = null!;
             WarehouseID = null!;
         }

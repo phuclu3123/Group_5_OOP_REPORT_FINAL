@@ -4,7 +4,7 @@ namespace Cuoi_ky_OOP.Models.Infrastructure
 {
     public class MaintenanceLog
     {
-        public string LogID { get; private set; }  
+        public string LogID { get; private set; }
         public string VehicleID { get; private set; }
         public DateTime ServiceDate { get; private set; }
         public decimal Cost { get; private set; }
