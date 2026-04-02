@@ -1,0 +1,33 @@
+{
+  "TrackingNumber": "TRK123456",
+  "SenderID": "SENDER001",
+  "ReceiverID": "RECEIVER001",
+  "PickupAddress": "123 Pickup St",
+  "DeliveryAddress": "456 Delivery Ave",
+  "Packages": [
+    {
+      "PackageID": "PKG001",
+      "OrderID": "TRK123456",
+      "Description": "Fragile Items",
+      "ActualWeight": 2.5,
+      "Dimensions": "20x20x20",
+      "VolumeWeight": 1.6,
+      "IsFragile": true
+    }
+  ],
+  "Details": [
+    {
+      "DetailID": "DET001",
+      "ProductName": "Laptop",
+      "Quantity": 1,
+      "UnitPrice": 15000000.0,
+      "SubTotal": 15000000.0
+    }
+  ],
+  "TotalWeight": 2.5,
+  "TotalCost": 75000.00,
+  "ServiceType": 1,
+  "CurrentStatus": 0,
+  "CreatedDate": "2026-04-02T15:49:33.2248465+07:00",
+  "AssignedDriverID": ""
+}

@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization; // Thu vien ho tro ISerializable
 using Cuoi_ky_OOP.Models.Common;
 using Cuoi_ky_OOP.Models.Interfaces;
 
 namespace Cuoi_ky_OOP.Models.Business
 {
-    public class ProblemReport : IReportable
+    // Danh dau class co the duoc serialize
+    [Serializable]
+    public class ProblemReport : IReportable, ISerializable
     {
         public string ReportID { get; private set; }
         public string OrderID { get; private set; }
@@ -26,10 +29,41 @@ namespace Cuoi_ky_OOP.Models.Business
             CreatedDate = DateTime.Now;
         }
 
-        // Constructor khong tham so cho XML serialization
+        // Constructor khong tham so cho serialization
         public ProblemReport()
         {
             EvidenceImages = new List<string>();
+        }
+
+        // ===== ISERIALIZABLE: Constructor phuc hoi (Deserialization) =====
+        // Phuc hoi doi tuong ProblemReport tu SerializationInfo khi doc tu file
+        protected ProblemReport(SerializationInfo info, StreamingContext context)
+        {
+            ReportID = info.GetString("ReportID") ?? "";
+            OrderID = info.GetString("OrderID") ?? "";
+            Description = info.GetString("Description") ?? "";
+
+            // Phuc hoi enum bang ep kieu (cast) tu GetValue
+            IssueType = (IssueType)info.GetValue("IssueType", typeof(IssueType));
+            ResolutionStatus = (ResolutionStatus)info.GetValue("ResolutionStatus", typeof(ResolutionStatus));
+
+            // Phuc hoi danh sach bang chung
+            EvidenceImages = (List<string>)info.GetValue("EvidenceImages", typeof(List<string>)) ?? new List<string>();
+
+            CreatedDate = info.GetDateTime("CreatedDate");
+        }
+
+        // ===== ISERIALIZABLE: Ghi du lieu (Serialization) =====
+        // Ghi toan bo property cua ProblemReport vao SerializationInfo de luu tru
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("ReportID", ReportID);
+            info.AddValue("OrderID", OrderID);
+            info.AddValue("Description", Description);
+            info.AddValue("IssueType", IssueType);              // Ghi enum
+            info.AddValue("ResolutionStatus", ResolutionStatus); // Ghi enum
+            info.AddValue("EvidenceImages", EvidenceImages);     // Ghi List<string>
+            info.AddValue("CreatedDate", CreatedDate);           // Ghi DateTime
         }
 
         // ===== IReportable =====

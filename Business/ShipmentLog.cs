@@ -1,9 +1,12 @@
 using System;
+using System.Runtime.Serialization; // Thu vien ho tro ISerializable
 using Cuoi_ky_OOP.Models.Common;
 
 namespace Cuoi_ky_OOP.Models.Business
 {
-    public class ShipmentLog
+    // Danh dau class co the duoc serialize
+    [Serializable]
+    public class ShipmentLog : ISerializable
     {
         public string LogID { get; private set; }
         public string TrackingNumber { get; private set; }
@@ -23,8 +26,32 @@ namespace Cuoi_ky_OOP.Models.Business
             Note = note;
         }
 
-        // Constructor khong tham so cho XML serialization
+        // Constructor khong tham so cho serialization
         public ShipmentLog() { }
+
+        // ===== ISERIALIZABLE: Constructor phuc hoi (Deserialization) =====
+        // Phuc hoi doi tuong ShipmentLog tu SerializationInfo khi doc tu file
+        protected ShipmentLog(SerializationInfo info, StreamingContext context)
+        {
+            LogID = info.GetString("LogID") ?? "";
+            TrackingNumber = info.GetString("TrackingNumber") ?? "";
+            Status = (OrderStatus)info.GetValue("Status", typeof(OrderStatus)); // Phuc hoi enum
+            Location = info.GetString("Location") ?? "";
+            Timestamp = info.GetDateTime("Timestamp");
+            Note = info.GetString("Note") ?? "";
+        }
+
+        // ===== ISERIALIZABLE: Ghi du lieu (Serialization) =====
+        // Ghi toan bo property cua ShipmentLog vao SerializationInfo de luu tru
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("LogID", LogID);
+            info.AddValue("TrackingNumber", TrackingNumber);
+            info.AddValue("Status", Status);       // Ghi enum OrderStatus
+            info.AddValue("Location", Location);
+            info.AddValue("Timestamp", Timestamp); // Ghi DateTime
+            info.AddValue("Note", Note);
+        }
 
         // Cap nhat ghi chu
         public void UpdateNote(string newNote)

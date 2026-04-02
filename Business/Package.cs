@@ -1,8 +1,11 @@
 using System;
+using System.Runtime.Serialization; // Thu vien ho tro ISerializable
 
 namespace Cuoi_ky_OOP.Models.Business
 {
-    public class Package
+    // Danh dau class co the duoc serialize
+    [Serializable]
+    public class Package : ISerializable
     {
         public string PackageID { get; private set; }
         public string OrderID { get; private set; }
@@ -24,8 +27,34 @@ namespace Cuoi_ky_OOP.Models.Business
             VolumeWeight = CalculateVolumeWeight();
         }
 
-        // Constructor khong tham so cho XML serialization
+        // Constructor khong tham so cho serialization
         public Package() { }
+
+        // ===== ISERIALIZABLE: Constructor phuc hoi (Deserialization) =====
+        // Phuc hoi doi tuong Package tu SerializationInfo khi doc tu file
+        protected Package(SerializationInfo info, StreamingContext context)
+        {
+            PackageID = info.GetString("PackageID") ?? "";
+            OrderID = info.GetString("OrderID") ?? "";
+            Description = info.GetString("Description") ?? "";
+            ActualWeight = info.GetDouble("ActualWeight");
+            Dimensions = info.GetString("Dimensions") ?? "";
+            VolumeWeight = info.GetDouble("VolumeWeight");
+            IsFragile = info.GetBoolean("IsFragile");
+        }
+
+        // ===== ISERIALIZABLE: Ghi du lieu (Serialization) =====
+        // Ghi toan bo property cua Package vao SerializationInfo de luu tru
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("PackageID", PackageID);
+            info.AddValue("OrderID", OrderID);
+            info.AddValue("Description", Description);
+            info.AddValue("ActualWeight", ActualWeight);
+            info.AddValue("Dimensions", Dimensions);
+            info.AddValue("VolumeWeight", VolumeWeight);
+            info.AddValue("IsFragile", IsFragile);
+        }
 
         // Tinh khoi luong quy doi tu kich thuoc (DxRxC cm / 5000)
         public double CalculateVolumeWeight()

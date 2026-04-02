@@ -1,9 +1,12 @@
 using System;
+using System.Runtime.Serialization; // Thu vien ho tro ISerializable
 using Cuoi_ky_OOP.Models.Common;
 
 namespace Cuoi_ky_OOP.Models.Business
 {
-    public class Transaction
+    // Danh dau class co the duoc serialize
+    [Serializable]
+    public class Transaction : ISerializable
     {
         public string TransactionID { get; private set; }
         public string OrderID { get; private set; }
@@ -22,8 +25,32 @@ namespace Cuoi_ky_OOP.Models.Business
             Timestamp = DateTime.Now;
         }
 
-        // Constructor khong tham so cho XML serialization
+        // Constructor khong tham so cho serialization
         public Transaction() { }
+
+        // ===== ISERIALIZABLE: Constructor phuc hoi (Deserialization) =====
+        // Phuc hoi doi tuong Transaction tu SerializationInfo khi doc tu file
+        protected Transaction(SerializationInfo info, StreamingContext context)
+        {
+            TransactionID = info.GetString("TransactionID") ?? "";
+            OrderID = info.GetString("OrderID") ?? "";
+            Amount = info.GetDecimal("Amount");
+            PaymentMethod = (PaymentMethod)info.GetValue("PaymentMethod", typeof(PaymentMethod)); // Phuc hoi enum
+            Status = (TransactionStatus)info.GetValue("Status", typeof(TransactionStatus));       // Phuc hoi enum
+            Timestamp = info.GetDateTime("Timestamp");
+        }
+
+        // ===== ISERIALIZABLE: Ghi du lieu (Serialization) =====
+        // Ghi toan bo property cua Transaction vao SerializationInfo de luu tru
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("TransactionID", TransactionID);
+            info.AddValue("OrderID", OrderID);
+            info.AddValue("Amount", Amount);
+            info.AddValue("PaymentMethod", PaymentMethod); // Ghi enum PaymentMethod
+            info.AddValue("Status", Status);               // Ghi enum TransactionStatus
+            info.AddValue("Timestamp", Timestamp);         // Ghi DateTime
+        }
 
         // Hoan tat giao dich
         public void CompleteTransaction()

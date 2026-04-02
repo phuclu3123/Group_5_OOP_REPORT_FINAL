@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization; // Thu vien ho tro ISerializable
 using Cuoi_ky_OOP.Models.Common;
 using Cuoi_ky_OOP.Models.Interfaces;
 
 namespace Cuoi_ky_OOP.Models.Business
 {
-    public class Order : ITrackable, IReportable
+    // Danh dau class co the duoc serialize (bat buoc khi implement ISerializable)
+    [Serializable]
+    public class Order : ITrackable, IReportable, ISerializable
     {
         // ===== PROPERTIES =====
         public string TrackingNumber { get; private set; }
@@ -46,11 +49,69 @@ namespace Cuoi_ky_OOP.Models.Business
             AssignedDriverID = "";
         }
 
-        // Constructor khong tham so cho XML serialization
+        // Constructor khong tham so cho serialization
         public Order()
         {
             Packages = new List<Package>();
             Details = new List<OrderDetail>();
+        }
+
+        // ===== ISERIALIZABLE: Constructor phuc hoi (Deserialization) =====
+        // Constructor nay duoc goi khi deserialization, doc du lieu tu SerializationInfo
+        // va gan nguoc lai vao tung property cua doi tuong
+        protected Order(SerializationInfo info, StreamingContext context)
+        {
+            // Phuc hoi cac property kieu string
+            TrackingNumber = info.GetString("TrackingNumber") ?? "";
+            SenderID = info.GetString("SenderID") ?? "";
+            ReceiverID = info.GetString("ReceiverID") ?? "";
+            PickupAddress = info.GetString("PickupAddress") ?? "";
+            DeliveryAddress = info.GetString("DeliveryAddress") ?? "";
+            AssignedDriverID = info.GetString("AssignedDriverID") ?? "";
+
+            // Phuc hoi cac collection (List) bang GetValue voi typeof
+            Packages = (List<Package>)info.GetValue("Packages", typeof(List<Package>)) ?? new List<Package>();
+            Details = (List<OrderDetail>)info.GetValue("Details", typeof(List<OrderDetail>)) ?? new List<OrderDetail>();
+
+            // Phuc hoi cac property kieu so
+            TotalWeight = info.GetDouble("TotalWeight");
+            TotalCost = info.GetDecimal("TotalCost");
+
+            // Phuc hoi cac property kieu enum bang ep kieu (cast)
+            ServiceType = (ServiceType)info.GetValue("ServiceType", typeof(ServiceType));
+            CurrentStatus = (OrderStatus)info.GetValue("CurrentStatus", typeof(OrderStatus));
+
+            // Phuc hoi property kieu DateTime
+            CreatedDate = info.GetDateTime("CreatedDate");
+        }
+
+        // ===== ISERIALIZABLE: Ghi du lieu (Serialization) =====
+        // Method bat buoc cua ISerializable, ghi toan bo property vao SerializationInfo
+        // de luu tru hoac truyen di
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            // Ghi cac property kieu string
+            info.AddValue("TrackingNumber", TrackingNumber);
+            info.AddValue("SenderID", SenderID);
+            info.AddValue("ReceiverID", ReceiverID);
+            info.AddValue("PickupAddress", PickupAddress);
+            info.AddValue("DeliveryAddress", DeliveryAddress);
+            info.AddValue("AssignedDriverID", AssignedDriverID);
+
+            // Ghi cac collection (List)
+            info.AddValue("Packages", Packages);
+            info.AddValue("Details", Details);
+
+            // Ghi cac property kieu so
+            info.AddValue("TotalWeight", TotalWeight);
+            info.AddValue("TotalCost", TotalCost);
+
+            // Ghi cac property kieu enum
+            info.AddValue("ServiceType", ServiceType);
+            info.AddValue("CurrentStatus", CurrentStatus);
+
+            // Ghi property kieu DateTime
+            info.AddValue("CreatedDate", CreatedDate);
         }
 
         // ===== ITrackable =====
