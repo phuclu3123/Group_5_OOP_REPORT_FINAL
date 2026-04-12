@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization; // Thu vien ho tro ISerializable
-using Cuoi_ky_OOP.Models.Common;
-using Cuoi_ky_OOP.Models.Interfaces;
+using Logistic.Core.Models.Common;
+using Logistic.Core.Interfaces;
 
-namespace Cuoi_ky_OOP.Models.Business
+namespace Logistic.Core.Models.Business
 {
     // Danh dau class co the duoc serialize
     [Serializable]

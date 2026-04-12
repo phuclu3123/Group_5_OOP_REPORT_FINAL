@@ -2,8 +2,9 @@ using Newtonsoft.Json; // Su dung Newtonsoft.Json (JsonConvert) de serialize/des
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Logistic.Core.Interfaces; // IRepository<T> da chuyen sang Interfaces
 
-namespace Cuoi_ky_OOP.Models.DataAccess
+namespace Logistic.Core.DataAccess
 {
     /// <summary>
     /// Hien thuc hoa kho luu tru du lieu duoi dinh dang JSON

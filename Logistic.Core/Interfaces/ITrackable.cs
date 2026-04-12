@@ -1,4 +1,4 @@
-namespace Cuoi_ky_OOP.Models.Interfaces
+namespace Logistic.Core.Interfaces
 {
     // Interface theo doi - ap dung cho cac doi tuong co the track trang thai va vi tri
     public interface ITrackable

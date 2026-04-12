@@ -1,6 +1,7 @@
 using System;
+using Logistic.Core.Interfaces; // IRepository<T> da chuyen sang Interfaces
 
-namespace Cuoi_ky_OOP.Models.DataAccess
+namespace Logistic.Core.DataAccess
 {
     /// <summary>
     /// Factory Method Pattern: Tu dong tao va tra ve Repository phu hop

@@ -1,4 +1,4 @@
-namespace Cuoi_ky_OOP.Models.Common
+namespace Logistic.Core.Models.Common
 {
     public enum Gender
     {

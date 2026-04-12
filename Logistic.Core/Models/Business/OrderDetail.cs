@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization; // Thu vien ho tro ISerializable
 
-namespace Cuoi_ky_OOP.Models.Business
+namespace Logistic.Core.Models.Business
 {
     // COMPOSITION (Strong "Has-A") voi Order
     // OrderDetail CHI duoc tao ben trong Order thong qua AddDetail()

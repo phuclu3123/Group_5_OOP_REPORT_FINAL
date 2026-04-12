@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization; // Thu vien ho tro ISerializable
 
-namespace Cuoi_ky_OOP.Models.Business
+namespace Logistic.Core.Models.Business
 {
     // Danh dau class co the duoc serialize
     [Serializable]

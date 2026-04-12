@@ -1,4 +1,4 @@
-namespace Cuoi_ky_OOP.Models.DataAccess
+namespace Logistic.Core.Interfaces
 {
     /// <summary>
     /// Giao dien Generic Repository (Kho luu tru chung)

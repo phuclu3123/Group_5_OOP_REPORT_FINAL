@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization; // Thu vien ho tro ISerializable
-using Cuoi_ky_OOP.Models.Common;
-using Cuoi_ky_OOP.Models.Interfaces;
+using Logistic.Core.Models.Common;
+using Logistic.Core.Interfaces;
 
-namespace Cuoi_ky_OOP.Models.Business
+namespace Logistic.Core.Models.Business
 {
     // Danh dau class co the duoc serialize (bat buoc khi implement ISerializable)
     [Serializable]
@@ -31,6 +31,10 @@ namespace Cuoi_ky_OOP.Models.Business
         public DateTime CreatedDate { get; private set; }
         public string AssignedDriverID { get; private set; }
 
+        // Composition (1-Nhieu): StatusHistories CHI duoc tao ben trong Order
+        // Ghi lai lich su thay doi trang thai (Timeline Tracking)
+        public List<OrderStatusHistory> StatusHistories { get; private set; }
+
         public Order(string trackingNumber, string senderId, string receiverId,
                      string pickupAddress, string deliveryAddress, ServiceType serviceType)
         {
@@ -42,6 +46,7 @@ namespace Cuoi_ky_OOP.Models.Business
             ServiceType = serviceType;
             Packages = new List<Package>();
             Details = new List<OrderDetail>();
+            StatusHistories = new List<OrderStatusHistory>();
             TotalWeight = 0;
             TotalCost = 0;
             CurrentStatus = OrderStatus.Pending;
@@ -54,6 +59,7 @@ namespace Cuoi_ky_OOP.Models.Business
         {
             Packages = new List<Package>();
             Details = new List<OrderDetail>();
+            StatusHistories = new List<OrderStatusHistory>();
         }
 
         // ===== ISERIALIZABLE: Constructor phuc hoi (Deserialization) =====
@@ -72,6 +78,7 @@ namespace Cuoi_ky_OOP.Models.Business
             // Phuc hoi cac collection (List) bang GetValue voi typeof
             Packages = (List<Package>)info.GetValue("Packages", typeof(List<Package>)) ?? new List<Package>();
             Details = (List<OrderDetail>)info.GetValue("Details", typeof(List<OrderDetail>)) ?? new List<OrderDetail>();
+            StatusHistories = (List<OrderStatusHistory>)info.GetValue("StatusHistories", typeof(List<OrderStatusHistory>)) ?? new List<OrderStatusHistory>();
 
             // Phuc hoi cac property kieu so
             TotalWeight = info.GetDouble("TotalWeight");
@@ -101,6 +108,7 @@ namespace Cuoi_ky_OOP.Models.Business
             // Ghi cac collection (List)
             info.AddValue("Packages", Packages);
             info.AddValue("Details", Details);
+            info.AddValue("StatusHistories", StatusHistories);
 
             // Ghi cac property kieu so
             info.AddValue("TotalWeight", TotalWeight);
@@ -217,10 +225,47 @@ namespace Cuoi_ky_OOP.Models.Business
             TotalWeight = total;
         }
 
-        // Cap nhat trang thai don hang
+        // Cap nhat trang thai don hang va tu dong ghi lai lich su thay doi
         public void UpdateStatus(OrderStatus newStatus)
         {
+            OrderStatus oldStatus = CurrentStatus;
             CurrentStatus = newStatus;
+            // Tu dong ghi lich su khi trang thai thay doi
+            AddStatusHistory(oldStatus, newStatus, "", "Cap nhat trang thai tu dong");
+        }
+
+        // Cap nhat trang thai don hang voi thong tin nguoi thay doi
+        public void UpdateStatus(OrderStatus newStatus, string changedBy, string note)
+        {
+            OrderStatus oldStatus = CurrentStatus;
+            CurrentStatus = newStatus;
+            AddStatusHistory(oldStatus, newStatus, changedBy, note);
+        }
+
+        // ===== COMPOSITION: Tao OrderStatusHistory ben trong Order =====
+        // OrderStatusHistory CHI duoc sinh ra ben trong ham nay
+        // Khong the tao OrderStatusHistory tu ben ngoai Order
+        public OrderStatusHistory AddStatusHistory(OrderStatus oldStatus, OrderStatus newStatus,
+                                                   string changedBy, string note)
+        {
+            string historyId = "HST-" + TrackingNumber + "-" + (StatusHistories.Count + 1);
+            OrderStatusHistory history = new OrderStatusHistory(
+                historyId, TrackingNumber, oldStatus, newStatus, changedBy, note);
+            StatusHistories.Add(history);
+            return history;
+        }
+
+        // Lay toan bo lich su thay doi trang thai
+        public string GetStatusTimeline()
+        {
+            string timeline = "========== LICH SU TRANG THAI ==========\n";
+            timeline += "  Don hang: " + TrackingNumber + "\n";
+            for (int i = 0; i < StatusHistories.Count; i++)
+            {
+                timeline += "  [" + (i + 1) + "] " + StatusHistories[i].GetHistoryInfo() + "\n";
+            }
+            timeline += "========================================";
+            return timeline;
         }
 
         // Cap nhat dia chi giao hang
