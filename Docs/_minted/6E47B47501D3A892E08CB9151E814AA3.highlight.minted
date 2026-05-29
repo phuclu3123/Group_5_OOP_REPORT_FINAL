@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{public}\PYG{+w}{ }\PYG{k}{override}\PYG{+w}{ }\PYG{k+kt}{decimal}\PYG{+w}{ }\PYG{n+nf}{CalculateSalary}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{decimal}\PYG{+w}{ }\PYG{n}{deliveryBonus}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{DeliveryCount}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{BonusPerDelivery}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{BaseSalary}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{deliveryBonus}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{FuelAllowance}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

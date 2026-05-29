@@ -1,0 +1,241 @@
+[
+  {
+    "TrackingNumber": "TN202605180001",
+    "SenderID": "CUST001",
+    "ReceiverID": "CUST002",
+    "Route": { "PickupAddress": "10 Pasteur, Quan 1, TP.HCM", "DeliveryAddress": "25 Ly Tu Trong, Quan 1, TP.HCM", "EstimatedDistanceKm": 15.5 },
+    "Details": [],
+    "StatusHistories": [],
+    "Packages": [
+      { "PackageID": "TN202605180001-PKG001", "OrderID": "TN202605180001", "Description": "Ho so hop dong", "ActualWeight": 2.4, "Dimensions": "35x25x8", "VolumeWeight": 1.4, "IsFragile": false, "Value": 1200000.0, "ItemCategory": "Tai lieu", "HandlingInstructions": "" }
+    ],
+    "TotalWeight": 2.4,
+    "TotalCost": 36000.0,
+    "ServiceType": 0,
+    "CurrentStatus": 0,
+    "CreatedDate": "2026-05-18T08:00:00+07:00",
+    "AssignedDriverID": "",
+    "AssignedVehicleID": ""
+  },
+  {
+    "TrackingNumber": "TN202605180002",
+    "SenderID": "CUST002",
+    "ReceiverID": "CUST003",
+    "Route": { "PickupAddress": "25 Ly Tu Trong, Quan 1, TP.HCM", "DeliveryAddress": "88 Cach Mang Thang 8, Quan 3, TP.HCM", "EstimatedDistanceKm": 15.5 },
+    "Details": [],
+    "StatusHistories": [
+      { "HistoryId": "TN202605180002-HIS001", "PreviousStatus": 0, "NewStatus": 1, "ChangedAt": "2026-05-18T08:22:00+07:00", "Location": "25 Ly Tu Trong, Quan 1, TP.HCM -> 88 Cach Mang Thang 8, Quan 3, TP.HCM (15.5km)", "Description": "Da dieu phoi giao hang", "ChangedBy": "Seeder" }
+    ],
+    "Packages": [
+      { "PackageID": "TN202605180002-PKG001", "OrderID": "TN202605180002", "Description": "Linh kien dien tu", "ActualWeight": 8.7, "Dimensions": "50x40x30", "VolumeWeight": 12.0, "IsFragile": true, "Value": 6800000.0, "ItemCategory": "Dien tu", "HandlingInstructions": "Can xu ly nhe" }
+    ],
+    "TotalWeight": 8.7,
+    "TotalCost": 191400.0,
+    "ServiceType": 1,
+    "CurrentStatus": 1,
+    "CreatedDate": "2026-05-18T08:20:00+07:00",
+    "AssignedDriverID": "DRV0001",
+    "AssignedVehicleID": "VEH002"
+  },
+  {
+    "TrackingNumber": "TN202605180003",
+    "SenderID": "CUST003",
+    "ReceiverID": "CUST001",
+    "Route": { "PickupAddress": "88 Cach Mang Thang 8, Quan 3, TP.HCM", "DeliveryAddress": "10 Pasteur, Quan 1, TP.HCM", "EstimatedDistanceKm": 15.5 },
+    "Details": [],
+    "StatusHistories": [
+      { "HistoryId": "TN202605180003-HIS001", "PreviousStatus": 0, "NewStatus": 1, "ChangedAt": "2026-05-18T08:42:00+07:00", "Location": "88 Cach Mang Thang 8, Quan 3, TP.HCM -> 10 Pasteur, Quan 1, TP.HCM (15.5km)", "Description": "Da dieu phoi giao hang", "ChangedBy": "Seeder" },
+      { "HistoryId": "TN202605180003-HIS002", "PreviousStatus": 1, "NewStatus": 2, "ChangedAt": "2026-05-18T10:15:00+07:00", "Location": "88 Cach Mang Thang 8, Quan 3, TP.HCM -> 10 Pasteur, Quan 1, TP.HCM (15.5km)", "Description": "Da giao thanh cong", "ChangedBy": "Seeder" }
+    ],
+    "Packages": [
+      { "PackageID": "TN202605180003-PKG001", "OrderID": "TN202605180003", "Description": "Hang thoi trang", "ActualWeight": 4.2, "Dimensions": "45x30x22", "VolumeWeight": 5.94, "IsFragile": false, "Value": 2400000.0, "ItemCategory": "Thoi trang", "HandlingInstructions": "" }
+    ],
+    "TotalWeight": 4.2,
+    "TotalCost": 126000.0,
+    "ServiceType": 2,
+    "CurrentStatus": 2,
+    "CreatedDate": "2026-05-18T08:40:00+07:00",
+    "AssignedDriverID": "DRV0002",
+    "AssignedVehicleID": "VEH001"
+  },
+  {
+    "TrackingNumber": "TN202605180004",
+    "SenderID": "CUST001",
+    "ReceiverID": "CUST003",
+    "Route": { "PickupAddress": "Kho Trung Tam Mien Bac", "DeliveryAddress": "88 Cach Mang Thang 8, Quan 3, TP.HCM", "EstimatedDistanceKm": 15.5 },
+    "Details": [],
+    "StatusHistories": [
+      { "HistoryId": "TN202605180004-HIS001", "PreviousStatus": 0, "NewStatus": 3, "ChangedAt": "2026-05-18T09:05:00+07:00", "Location": "Kho Trung Tam Mien Bac -> 88 Cach Mang Thang 8, Quan 3, TP.HCM (15.5km)", "Description": "Khach hang huy don", "ChangedBy": "Seeder" }
+    ],
+    "Packages": [
+      { "PackageID": "TN202605180004-PKG001", "OrderID": "TN202605180004", "Description": "Vat tu san xuat", "ActualWeight": 42.5, "Dimensions": "90x60x50", "VolumeWeight": 54.0, "IsFragile": false, "Value": 5200000.0, "ItemCategory": "Vat tu", "HandlingInstructions": "" }
+    ],
+    "TotalWeight": 42.5,
+    "TotalCost": 637500.0,
+    "ServiceType": 0,
+    "CurrentStatus": 3,
+    "CreatedDate": "2026-05-18T09:00:00+07:00",
+    "AssignedDriverID": "",
+    "AssignedVehicleID": ""
+  },
+  {
+    "TrackingNumber": "TN202605180005",
+    "SenderID": "CUST002",
+    "ReceiverID": "CUST001",
+    "Route": { "PickupAddress": "25 Ly Tu Trong, Quan 1, TP.HCM", "DeliveryAddress": "Kho Lanh Tan Binh", "EstimatedDistanceKm": 15.5 },
+    "Details": [],
+    "StatusHistories": [
+      { "HistoryId": "TN202605180005-HIS001", "PreviousStatus": 0, "NewStatus": 1, "ChangedAt": "2026-05-18T09:32:00+07:00", "Location": "25 Ly Tu Trong, Quan 1, TP.HCM -> Kho Lanh Tan Binh (15.5km)", "Description": "Da dieu phoi giao hang", "ChangedBy": "Seeder" },
+      { "HistoryId": "TN202605180005-HIS002", "PreviousStatus": 1, "NewStatus": 5, "ChangedAt": "2026-05-18T11:10:00+07:00", "Location": "25 Ly Tu Trong, Quan 1, TP.HCM -> Kho Lanh Tan Binh (15.5km)", "Description": "Su co giao hang can xu ly", "ChangedBy": "Seeder" }
+    ],
+    "Packages": [
+      { "PackageID": "TN202605180005-PKG001", "OrderID": "TN202605180005", "Description": "Thuc pham dong goi", "ActualWeight": 18.3, "Dimensions": "70x45x35", "VolumeWeight": 22.05, "IsFragile": false, "Value": 3100000.0, "ItemCategory": "Thuc pham", "HandlingInstructions": "Giu mat" }
+    ],
+    "TotalWeight": 18.3,
+    "TotalCost": 402600.0,
+    "ServiceType": 1,
+    "CurrentStatus": 5,
+    "CreatedDate": "2026-05-18T09:30:00+07:00",
+    "AssignedDriverID": "DRV0003",
+    "AssignedVehicleID": "VEH004"
+  },
+  {
+    "TrackingNumber": "TN202605180006",
+    "SenderID": "CUST003",
+    "ReceiverID": "CUST002",
+    "Route": { "PickupAddress": "88 Cach Mang Thang 8, Quan 3, TP.HCM", "DeliveryAddress": "25 Ly Tu Trong, Quan 1, TP.HCM", "EstimatedDistanceKm": 15.5 },
+    "Details": [],
+    "StatusHistories": [],
+    "Packages": [
+      { "PackageID": "TN202605180006-PKG001", "OrderID": "TN202605180006", "Description": "Sach va tai lieu", "ActualWeight": 6.1, "Dimensions": "42x32x20", "VolumeWeight": 5.376, "IsFragile": false, "Value": 900000.0, "ItemCategory": "Tai lieu", "HandlingInstructions": "" }
+    ],
+    "TotalWeight": 6.1,
+    "TotalCost": 91500.0,
+    "ServiceType": 0,
+    "CurrentStatus": 0,
+    "CreatedDate": "2026-05-18T10:00:00+07:00",
+    "AssignedDriverID": "",
+    "AssignedVehicleID": "VEH003"
+  },
+  {
+    "TrackingNumber": "TN202605180007",
+    "SenderID": "CUST001",
+    "ReceiverID": "CUST002",
+    "Route": { "PickupAddress": "10 Pasteur, Quan 1, TP.HCM", "DeliveryAddress": "KCN Hoa Cam, Da Nang", "EstimatedDistanceKm": 15.5 },
+    "Details": [],
+    "StatusHistories": [
+      { "HistoryId": "TN202605180007-HIS001", "PreviousStatus": 0, "NewStatus": 1, "ChangedAt": "2026-05-18T10:22:00+07:00", "Location": "10 Pasteur, Quan 1, TP.HCM -> KCN Hoa Cam, Da Nang (15.5km)", "Description": "Da dieu phoi giao hang", "ChangedBy": "Seeder" }
+    ],
+    "Packages": [
+      { "PackageID": "TN202605180007-PKG001", "OrderID": "TN202605180007", "Description": "May quet ma vach", "ActualWeight": 12.8, "Dimensions": "60x45x40", "VolumeWeight": 21.6, "IsFragile": true, "Value": 7600000.0, "ItemCategory": "Dien tu", "HandlingInstructions": "Hang gia tri cao" }
+    ],
+    "TotalWeight": 12.8,
+    "TotalCost": 281600.0,
+    "ServiceType": 1,
+    "CurrentStatus": 1,
+    "CreatedDate": "2026-05-18T10:20:00+07:00",
+    "AssignedDriverID": "DRV0001",
+    "AssignedVehicleID": "VEH003"
+  },
+  {
+    "TrackingNumber": "TN202605180008",
+    "SenderID": "CUST002",
+    "ReceiverID": "CUST003",
+    "Route": { "PickupAddress": "Kho Phan Loai Mien Nam", "DeliveryAddress": "88 Cach Mang Thang 8, Quan 3, TP.HCM", "EstimatedDistanceKm": 15.5 },
+    "Details": [],
+    "StatusHistories": [
+      { "HistoryId": "TN202605180008-HIS001", "PreviousStatus": 0, "NewStatus": 1, "ChangedAt": "2026-05-18T10:42:00+07:00", "Location": "Kho Phan Loai Mien Nam -> 88 Cach Mang Thang 8, Quan 3, TP.HCM (15.5km)", "Description": "Da dieu phoi giao hang", "ChangedBy": "Seeder" },
+      { "HistoryId": "TN202605180008-HIS002", "PreviousStatus": 1, "NewStatus": 2, "ChangedAt": "2026-05-18T12:20:00+07:00", "Location": "Kho Phan Loai Mien Nam -> 88 Cach Mang Thang 8, Quan 3, TP.HCM (15.5km)", "Description": "Da giao thanh cong", "ChangedBy": "Seeder" }
+    ],
+    "Packages": [
+      { "PackageID": "TN202605180008-PKG001", "OrderID": "TN202605180008", "Description": "Mau xet nghiem dong goi", "ActualWeight": 3.5, "Dimensions": "30x24x18", "VolumeWeight": 2.592, "IsFragile": true, "Value": 1500000.0, "ItemCategory": "Y te", "HandlingInstructions": "Uu tien giao nhanh" }
+    ],
+    "TotalWeight": 3.5,
+    "TotalCost": 105000.0,
+    "ServiceType": 2,
+    "CurrentStatus": 2,
+    "CreatedDate": "2026-05-18T10:40:00+07:00",
+    "AssignedDriverID": "DRV0002",
+    "AssignedVehicleID": "VEH004"
+  },
+  {
+    "TrackingNumber": "TN202605180009",
+    "SenderID": "CUST003",
+    "ReceiverID": "CUST001",
+    "Route": { "PickupAddress": "88 Cach Mang Thang 8, Quan 3, TP.HCM", "DeliveryAddress": "10 Pasteur, Quan 1, TP.HCM", "EstimatedDistanceKm": 15.5 },
+    "Details": [],
+    "StatusHistories": [],
+    "Packages": [
+      { "PackageID": "TN202605180009-PKG001", "OrderID": "TN202605180009", "Description": "Phu kien van phong", "ActualWeight": 9.4, "Dimensions": "55x35x25", "VolumeWeight": 9.625, "IsFragile": false, "Value": 1850000.0, "ItemCategory": "Van phong", "HandlingInstructions": "" }
+    ],
+    "TotalWeight": 9.4,
+    "TotalCost": 141000.0,
+    "ServiceType": 0,
+    "CurrentStatus": 0,
+    "CreatedDate": "2026-05-18T11:00:00+07:00",
+    "AssignedDriverID": "",
+    "AssignedVehicleID": ""
+  },
+  {
+    "TrackingNumber": "TN202605180010",
+    "SenderID": "CUST001",
+    "ReceiverID": "CUST003",
+    "Route": { "PickupAddress": "10 Pasteur, Quan 1, TP.HCM", "DeliveryAddress": "Binh Duong, Thuan An", "EstimatedDistanceKm": 15.5 },
+    "Details": [],
+    "StatusHistories": [
+      { "HistoryId": "TN202605180010-HIS001", "PreviousStatus": 0, "NewStatus": 1, "ChangedAt": "2026-05-18T11:22:00+07:00", "Location": "10 Pasteur, Quan 1, TP.HCM -> Binh Duong, Thuan An (15.5km)", "Description": "Da dieu phoi giao hang", "ChangedBy": "Seeder" },
+      { "HistoryId": "TN202605180010-HIS002", "PreviousStatus": 1, "NewStatus": 5, "ChangedAt": "2026-05-18T12:05:00+07:00", "Location": "10 Pasteur, Quan 1, TP.HCM -> Binh Duong, Thuan An (15.5km)", "Description": "Khach vang mat, can hen lai", "ChangedBy": "Seeder" }
+    ],
+    "Packages": [
+      { "PackageID": "TN202605180010-PKG001", "OrderID": "TN202605180010", "Description": "Linh kien bao hanh", "ActualWeight": 15.6, "Dimensions": "65x45x32", "VolumeWeight": 18.72, "IsFragile": true, "Value": 4300000.0, "ItemCategory": "Dien tu", "HandlingInstructions": "Can doi chieu bien ban" }
+    ],
+    "TotalWeight": 15.6,
+    "TotalCost": 343200.0,
+    "ServiceType": 1,
+    "CurrentStatus": 5,
+    "CreatedDate": "2026-05-18T11:20:00+07:00",
+    "AssignedDriverID": "DRV0003",
+    "AssignedVehicleID": "VEH002"
+  },
+  {
+    "TrackingNumber": "TN202605180011",
+    "SenderID": "CUST002",
+    "ReceiverID": "CUST001",
+    "Route": { "PickupAddress": "25 Ly Tu Trong, Quan 1, TP.HCM", "DeliveryAddress": "10 Pasteur, Quan 1, TP.HCM", "EstimatedDistanceKm": 15.5 },
+    "Details": [],
+    "StatusHistories": [
+      { "HistoryId": "TN202605180011-HIS001", "PreviousStatus": 0, "NewStatus": 1, "ChangedAt": "2026-05-18T11:42:00+07:00", "Location": "25 Ly Tu Trong, Quan 1, TP.HCM -> 10 Pasteur, Quan 1, TP.HCM (15.5km)", "Description": "Da dieu phoi giao hang", "ChangedBy": "Seeder" },
+      { "HistoryId": "TN202605180011-HIS002", "PreviousStatus": 1, "NewStatus": 2, "ChangedAt": "2026-05-18T13:00:00+07:00", "Location": "25 Ly Tu Trong, Quan 1, TP.HCM -> 10 Pasteur, Quan 1, TP.HCM (15.5km)", "Description": "Da giao thanh cong", "ChangedBy": "Seeder" }
+    ],
+    "Packages": [
+      { "PackageID": "TN202605180011-PKG001", "OrderID": "TN202605180011", "Description": "Qua tang doanh nghiep", "ActualWeight": 7.9, "Dimensions": "50x35x28", "VolumeWeight": 9.8, "IsFragile": true, "Value": 2800000.0, "ItemCategory": "Qua tang", "HandlingInstructions": "Khong chong nang" }
+    ],
+    "TotalWeight": 7.9,
+    "TotalCost": 118500.0,
+    "ServiceType": 0,
+    "CurrentStatus": 2,
+    "CreatedDate": "2026-05-18T11:40:00+07:00",
+    "AssignedDriverID": "DRV0001",
+    "AssignedVehicleID": "VEH001"
+  },
+  {
+    "TrackingNumber": "TN202605180012",
+    "SenderID": "CUST003",
+    "ReceiverID": "CUST002",
+    "Route": { "PickupAddress": "88 Cach Mang Thang 8, Quan 3, TP.HCM", "DeliveryAddress": "25 Ly Tu Trong, Quan 1, TP.HCM", "EstimatedDistanceKm": 15.5 },
+    "Details": [],
+    "StatusHistories": [
+      { "HistoryId": "TN202605180012-HIS001", "PreviousStatus": 0, "NewStatus": 1, "ChangedAt": "2026-05-18T12:02:00+07:00", "Location": "88 Cach Mang Thang 8, Quan 3, TP.HCM -> 25 Ly Tu Trong, Quan 1, TP.HCM (15.5km)", "Description": "Da dieu phoi giao hang", "ChangedBy": "Seeder" }
+    ],
+    "Packages": [
+      { "PackageID": "TN202605180012-PKG001", "OrderID": "TN202605180012", "Description": "Ho so dau thau", "ActualWeight": 1.8, "Dimensions": "32x24x6", "VolumeWeight": 0.9216, "IsFragile": false, "Value": 600000.0, "ItemCategory": "Tai lieu", "HandlingInstructions": "Giao trong ngay" }
+    ],
+    "TotalWeight": 1.8,
+    "TotalCost": 54000.0,
+    "ServiceType": 2,
+    "CurrentStatus": 1,
+    "CreatedDate": "2026-05-18T12:00:00+07:00",
+    "AssignedDriverID": "DRV0002",
+    "AssignedVehicleID": "VEH001"
+  }
+]

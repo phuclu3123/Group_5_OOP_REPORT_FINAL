@@ -1,0 +1,19 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{protected}\PYG{+w}{ }\PYG{n+nf}{Person}\PYG{p}{(}\PYG{n}{SerializationInfo}\PYG{+w}{ }\PYG{n}{info}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{StreamingContext}\PYG{+w}{ }\PYG{n}{context}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{Id}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{info}\PYG{p}{.}\PYG{n}{GetString}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Id\PYGZdq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{??}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{p}{.}\PYG{n}{Empty}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{FullName}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{info}\PYG{p}{.}\PYG{n}{GetString}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}FullName\PYGZdq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{??}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{p}{.}\PYG{n}{Empty}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{PhoneNumber}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{info}\PYG{p}{.}\PYG{n}{GetString}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}PhoneNumber\PYGZdq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{??}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{p}{.}\PYG{n}{Empty}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Email}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{info}\PYG{p}{.}\PYG{n}{GetString}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Email\PYGZdq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{??}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{p}{.}\PYG{n}{Empty}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{public}\PYG{+w}{ }\PYG{k}{virtual}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{GetObjectData}\PYG{p}{(}
+\PYG{+w}{    }\PYG{n}{SerializationInfo}\PYG{+w}{ }\PYG{n}{info}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{StreamingContext}\PYG{+w}{ }\PYG{n}{context}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{info}\PYG{p}{.}\PYG{n}{AddValue}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Id\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Id}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{info}\PYG{p}{.}\PYG{n}{AddValue}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}FullName\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{FullName}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{info}\PYG{p}{.}\PYG{n}{AddValue}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}PhoneNumber\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{PhoneNumber}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{info}\PYG{p}{.}\PYG{n}{AddValue}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Email\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Email}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

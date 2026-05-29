@@ -1,0 +1,1 @@
+﻿        public string AccountID { get; protected set; } // Ã„ÂÃƒÂ£ Ã„â€˜Ã†Â°a AccountID vÃƒÂ o Ã„â€˜ÃƒÂ¢y

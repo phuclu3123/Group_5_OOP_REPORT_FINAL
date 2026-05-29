@@ -1,0 +1,13 @@
+﻿=== UI DIAGNOSTICS ===
+Time: 25/05/2026 7:00:29 CH
+BaseDirectory: C:\Users\ADMIN\OneDrive\Máy tính\OOP_huong_doi_tuong_C#\Cuoi_ky_OOP\Logistics.WinFormsUI\bin\Debug\net10.0-windows\
+DataDirectory: C:\Users\ADMIN\OneDrive\Máy tính\OOP_huong_doi_tuong_C#\Cuoi_ky_OOP\Logistics.WinFormsUI\bin\Debug\net10.0-windows\Data
+Rows Count: 19
+Row 0: VehicleId=VEH001, LogId=MTN-VEH001-001, Cost=150000,0, Desc=Thay dầu nhớt động cơ và bộ lọc dầu, Provider=Garage xe máy Tiến Đạt, IsDue=True
+Row 1: VehicleId=VEH001, LogId=MTN-VEH001-002, Cost=350000,0, Desc=Thay xích, má phanh trước sau và bugi, Provider=Garage xe máy Tiến Đạt, IsDue=False
+Row 2: VehicleId=VEH001, LogId=MTN-VEH001-003, Cost=600000,0, Desc=Bảo dưỡng định kỳ toàn bộ xe, Provider=Trung tâm Honda Head Sơn Cát, IsDue=False
+Row 3: VehicleId=VEH002, LogId=MTN-VEH002-001, Cost=1200000,0, Desc=Thay nhớt máy, lọc nhớt và lọc gió, Provider=Toyota Hùng Vương, IsDue=True
+Row 4: VehicleId=VEH002, LogId=MTN-VEH002-002, Cost=3800000,0, Desc=Cân chỉnh góc đặt bánh xe, thay 2 lốp trước, Provider=Mâm lốp Hồng Cường, IsDue=False
+Vehicles count: 7
+First Vehicle: VEH001, Status=Ready, Logs Count=3
+First Log: LogID=MTN-VEH001-001, VehicleID=VEH001, Cost=150000,0, Desc=Thay dầu nhớt động cơ và bộ lọc dầu, Provider=Garage xe máy Tiến Đạt

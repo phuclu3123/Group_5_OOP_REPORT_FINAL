@@ -1,0 +1,36 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{ChangeStatus}\PYG{p}{(}\PYG{n}{OrderStatus}\PYG{+w}{ }\PYG{n}{newStatus}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{+w}{ }\PYG{n}{description}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{+w}{ }\PYG{n}{changedBy}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}System\PYGZdq{}}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// Kiểm tra ràng buộc chuyển đổi trạng thái trước khi thay đổi}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{!}\PYG{n}{CanTransitionTo}\PYG{p}{(}\PYG{n}{newStatus}\PYG{p}{))}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{throw}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n+nf}{InvalidOrderException}\PYG{p}{(}\PYG{l+s}{\PYGZdl{}\PYGZdq{}Khong the chuyen trang thai tu \PYGZob{}CurrentStatus\PYGZcb{} sang \PYGZob{}newStatus\PYGZcb{}\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{CurrentStatus}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{newStatus}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{OrderStatus}\PYG{+w}{ }\PYG{n}{oldStatus}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{CurrentStatus}\PYG{p}{;}
+
+\PYG{+w}{        }\PYG{c+c1}{// Tạo lịch sử thay đổi trạng thái (Composition)}
+\PYG{+w}{        }\PYG{n}{OrderStatusHistory}\PYG{+w}{ }\PYG{n}{historyItem}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{OrderStatusHistory}
+\PYG{+w}{        }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{PreviousStatus}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{oldStatus}\PYG{p}{,}
+\PYG{+w}{            }\PYG{n}{NewStatus}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{newStatus}\PYG{p}{,}
+\PYG{+w}{            }\PYG{n}{ChangedAt}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{DateTime}\PYG{p}{.}\PYG{n}{Now}\PYG{p}{,}
+\PYG{+w}{            }\PYG{n}{Location}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n}{Route}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k}{null}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n}{Route}\PYG{p}{.}\PYG{n}{ToString}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{:}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Unknown\PYGZdq{}}\PYG{p}{,}
+\PYG{+w}{            }\PYG{n}{Description}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{description}\PYG{p}{,}
+\PYG{+w}{            }\PYG{n}{ChangedBy}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{changedBy}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{};}
+\PYG{+w}{        }\PYG{n}{StatusHistories}\PYG{p}{.}\PYG{n}{Add}\PYG{p}{(}\PYG{n}{historyItem}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{c+c1}{// Thực hiện cập nhật trạng thái}
+\PYG{+w}{        }\PYG{n}{CurrentStatus}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{newStatus}\PYG{p}{;}
+
+\PYG{+w}{        }\PYG{c+c1}{// Đồng bộ trạng thái các kiện hàng con}
+\PYG{+w}{        }\PYG{n}{SynchronizePackageStatuses}\PYG{p}{(}\PYG{n}{oldStatus}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{newStatus}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{c+c1}{// Phát sự kiện thông báo (Observer)}
+\PYG{+w}{        }\PYG{n}{OnStatusChanged}\PYG{o}{?.}\PYG{n}{Invoke}\PYG{p}{(}\PYG{k}{this}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{oldStatus}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{newStatus}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

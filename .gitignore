@@ -1,0 +1,41 @@
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Re]leases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Log]s/
+[Tt]est[Rr]esult*/
+
+## Visual Studio cache and settings
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+*.suo.dts
+
+## Output and temporary files from compiler
+[Bb]in/
+[Oo]bj/
+
+## Rider
+.idea/
+
+## OS Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+## NuGet Packages
+*.nupkg
+**/packages/
+
+## VS Code
+.vscode/

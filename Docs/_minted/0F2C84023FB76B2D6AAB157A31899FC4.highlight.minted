@@ -1,0 +1,18 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{public}\PYG{+w}{ }\PYG{k}{interface}\PYG{+w}{ }\PYG{n}{ITrackable}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{string}\PYG{+w}{ }\PYG{n+nf}{GetCurrentStatus}\PYG{p}{();}
+\PYG{+w}{    }\PYG{k+kt}{string}\PYG{+w}{ }\PYG{n+nf}{GetTrackingInfo}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{public}\PYG{+w}{ }\PYG{k}{interface}\PYG{+w}{ }\PYG{n}{IReportable}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{string}\PYG{+w}{ }\PYG{n+nf}{GenerateReport}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{public}\PYG{+w}{ }\PYG{k}{interface}\PYG{+w}{ }\PYG{n}{ISalaryCalculable}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{decimal}\PYG{+w}{ }\PYG{n+nf}{CalculateSalary}\PYG{p}{();}
+\PYG{+w}{    }\PYG{k+kt}{string}\PYG{+w}{ }\PYG{n+nf}{GetSalaryBreakdown}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

@@ -1,0 +1,124 @@
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace Logistics.WinFormsUI.Forms
+{
+    partial class FrmPackageEditor
+    {
+        private Label lblTitle = null!;
+        private Label lblDescription = null!;
+        private TextBox txtDescription = null!;
+        private Label lblWeight = null!;
+        private TextBox txtWeight = null!;
+        private Label lblDimensions = null!;
+        private TextBox txtDimensions = null!;
+        private CheckBox chkFragile = null!;
+        private Label lblValue = null!;
+        private TextBox txtValue = null!;
+        private Label lblCategory = null!;
+        private TextBox txtCategory = null!;
+        private Label lblHandling = null!;
+        private TextBox txtHandling = null!;
+        private Button btnSave = null!;
+        private Button btnCancel = null!;
+
+        private void InitializeComponent()
+        {
+            lblTitle = new Label();
+            lblDescription = new Label();
+            txtDescription = new TextBox();
+            lblWeight = new Label();
+            txtWeight = new TextBox();
+            lblDimensions = new Label();
+            txtDimensions = new TextBox();
+            chkFragile = new CheckBox();
+            lblValue = new Label();
+            txtValue = new TextBox();
+            lblCategory = new Label();
+            txtCategory = new TextBox();
+            lblHandling = new Label();
+            txtHandling = new TextBox();
+            btnSave = new Button();
+            btnCancel = new Button();
+            SuspendLayout();
+            BackColor = Color.White;
+            ClientSize = new Size(500, 500);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Package";
+            lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            lblTitle.Location = new Point(24, 20);
+            lblTitle.Size = new Size(430, 36);
+            lblTitle.Text = "Chi tiet kien hang";
+            lblDescription.Location = new Point(30, 75);
+            lblDescription.Size = new Size(180, 22);
+            lblDescription.Text = "Mo ta:";
+            txtDescription.Location = new Point(30, 100);
+            txtDescription.Size = new Size(430, 27);
+            lblWeight.Location = new Point(30, 140);
+            lblWeight.Size = new Size(180, 22);
+            lblWeight.Text = "Khoi luong thuc (kg):";
+            txtWeight.Location = new Point(30, 165);
+            txtWeight.Size = new Size(200, 27);
+            lblDimensions.Location = new Point(260, 140);
+            lblDimensions.Size = new Size(200, 22);
+            lblDimensions.Text = "Kich thuoc DxRxC cm:";
+            txtDimensions.Location = new Point(260, 165);
+            txtDimensions.Size = new Size(200, 27);
+            chkFragile.Location = new Point(30, 205);
+            chkFragile.Size = new Size(220, 28);
+            chkFragile.Text = "Hang de vo / can xu ly nhe";
+            lblValue.Location = new Point(30, 245);
+            lblValue.Size = new Size(180, 22);
+            lblValue.Text = "Gia tri khai bao:";
+            txtValue.Location = new Point(30, 270);
+            txtValue.Size = new Size(200, 27);
+            lblCategory.Location = new Point(260, 245);
+            lblCategory.Size = new Size(200, 22);
+            lblCategory.Text = "Nhom hang:";
+            txtCategory.Location = new Point(260, 270);
+            txtCategory.Size = new Size(200, 27);
+            txtCategory.Text = "General";
+            lblHandling.Location = new Point(30, 315);
+            lblHandling.Size = new Size(180, 22);
+            lblHandling.Text = "Huong dan xu ly:";
+            txtHandling.Location = new Point(30, 340);
+            txtHandling.Multiline = true;
+            txtHandling.Size = new Size(430, 70);
+            btnSave.BackColor = Color.FromArgb(46, 204, 113);
+            btnSave.FlatStyle = FlatStyle.Flat;
+            btnSave.ForeColor = Color.White;
+            btnSave.Location = new Point(260, 435);
+            btnSave.Size = new Size(95, 36);
+            btnSave.Text = "Luu";
+            btnSave.Click += BtnSave_Click;
+            btnCancel.BackColor = Color.FromArgb(149, 165, 166);
+            btnCancel.FlatStyle = FlatStyle.Flat;
+            btnCancel.ForeColor = Color.White;
+            btnCancel.Location = new Point(365, 435);
+            btnCancel.Size = new Size(95, 36);
+            btnCancel.Text = "Dong";
+            btnCancel.Click += BtnCancel_Click;
+            Controls.Add(lblTitle);
+            Controls.Add(lblDescription);
+            Controls.Add(txtDescription);
+            Controls.Add(lblWeight);
+            Controls.Add(txtWeight);
+            Controls.Add(lblDimensions);
+            Controls.Add(txtDimensions);
+            Controls.Add(chkFragile);
+            Controls.Add(lblValue);
+            Controls.Add(txtValue);
+            Controls.Add(lblCategory);
+            Controls.Add(txtCategory);
+            Controls.Add(lblHandling);
+            Controls.Add(txtHandling);
+            Controls.Add(btnSave);
+            Controls.Add(btnCancel);
+            ResumeLayout(false);
+            PerformLayout();
+        }
+    }
+}

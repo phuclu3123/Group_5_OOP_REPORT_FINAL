@@ -1,0 +1,10 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{CalculateTotalCost}\PYG{p}{(}\PYG{n}{IShippingFeeStrategy}\PYG{+w}{ }\PYG{n}{feeStrategy}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{decimal}\PYG{+w}{ }\PYG{n}{baseRatePerKg}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{feeStrategy}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k}{null}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{c+c1}{// Lời gọi đa hình tùy thuộc vào đối tượng cụ thể của chiến lược phí}
+\PYG{+w}{        }\PYG{n}{TotalCost}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{feeStrategy}\PYG{p}{.}\PYG{n}{CalculateFee}\PYG{p}{(}\PYG{k}{this}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{baseRatePerKg}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

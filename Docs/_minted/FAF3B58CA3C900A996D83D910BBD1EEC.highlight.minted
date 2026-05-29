@@ -1,0 +1,12 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{IShippingFeeStrategy}\PYG{+w}{ }\PYG{n}{strategy}\PYG{p}{;}
+\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{order}\PYG{p}{.}\PYG{n}{ServiceType}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{ServiceType}\PYG{p}{.}\PYG{n}{Express}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{order}\PYG{p}{.}\PYG{n}{ServiceType}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{ServiceType}\PYG{p}{.}\PYG{n}{Instant}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{strategy}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{ExpressShippingFeeStrategy}\PYG{p}{(}\PYG{n}{businessRules}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{else}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{strategy}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{StandardShippingFeeStrategy}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+\PYG{n}{order}\PYG{p}{.}\PYG{n}{CalculateTotalCost}\PYG{p}{(}\PYG{n}{strategy}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ratePerKg}\PYG{p}{);}
+\end{MintedVerbatim}

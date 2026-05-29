@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Logistics.Core/Logistics.Core.csproj" />
+  <Project Path="Logistics.SmokeTests/Logistics.SmokeTests.csproj" />
+  <Project Path="Logistics.WinFormsUI/Logistics.WinFormsUI.csproj" />
+</Solution>

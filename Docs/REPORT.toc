@@ -1,0 +1,50 @@
+\contentsline {section}{\numberline {1}PHẦN MỞ ĐẦU}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Tính cấp thiết của đề tài}{1}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Vấn đề thực tiễn hiện nay}{1}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Lợi ích khi áp dụng phần mềm quản lý}{2}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Mục tiêu cụ thể của đề tài}{2}{subsubsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.2}Giới thiệu về Kĩ thuật lập trình hướng đối tượng (LTHĐT)}{3}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Định nghĩa}{3}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Nguyên tắc cơ bản của OOP}{4}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Lợi ích khi dùng OOP}{4}{subsubsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.3}Tầm quan trọng của LTHĐT trong Kĩ thuật phần mềm}{5}{subsection.1.3}%
+\contentsline {section}{\numberline {2}PHÂN TÍCH VÀ THIẾT KẾ LỚP}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Phân tích bài toán}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Thiết kế lớp và Sơ đồ lớp (Class diagrams)}{7}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Thiết kế lớp}{7}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Sơ đồ lớp}{8}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Các tính chất cơ bản của Lập trình hướng đối tượng (OOP)}{15}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Design Pattern}{20}{subsubsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.5}Các quan hệ trong Lập trình hướng đối tượng}{23}{subsubsection.2.2.5}%
+\contentsline {subsubsection}{\numberline {2.2.6}Kỹ thuật Serialization và Deserialization}{25}{subsubsection.2.2.6}%
+\contentsline {section}{\numberline {3}XÂY DỰNG ỨNG DỤNG}{27}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Thiết kế giao diện chương trình}{27}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Giao diện đăng nhập, đăng ký}{27}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Giao diện tổng quan}{27}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Giao diện quản lý đơn hàng}{27}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}Giao diện quản lý khách hàng}{27}{subsubsection.3.1.4}%
+\contentsline {subsubsection}{\numberline {3.1.5}Giao diện quản lý nhân sự}{27}{subsubsection.3.1.5}%
+\contentsline {subsubsection}{\numberline {3.1.6}Giao diện quản lý phương tiện}{27}{subsubsection.3.1.6}%
+\contentsline {subsubsection}{\numberline {3.1.7}Giao diện quản lý kho bãi}{27}{subsubsection.3.1.7}%
+\contentsline {subsubsection}{\numberline {3.1.8}Giao diện điều phối giao hàng}{27}{subsubsection.3.1.8}%
+\contentsline {subsubsection}{\numberline {3.1.9}Giao diện quản lý chứng từ}{27}{subsubsection.3.1.9}%
+\contentsline {subsubsection}{\numberline {3.1.10}Giao diện báo cáo, thống kê}{27}{subsubsection.3.1.10}%
+\contentsline {subsection}{\numberline {3.2}Phát triển các chức năng của ứng dụng}{27}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Quản lý tài khoản và phân quyền}{27}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Quản lý khách hàng}{27}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Quản lý nhân sự}{27}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Quản lý phương tiện}{27}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Quản lý kho bãi}{27}{subsubsection.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}Quản lý đơn hàng và kiện hàng}{27}{subsubsection.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.2.7}Điều phối tài xế và phương tiện}{27}{subsubsection.3.2.7}%
+\contentsline {subsubsection}{\numberline {3.2.8}Quản lý thanh toán và hóa đơn}{27}{subsubsection.3.2.8}%
+\contentsline {subsection}{\numberline {3.3}Các kịch bản thực thi ứng dụng}{27}{subsection.3.3}%
+\contentsline {section}{\numberline {4}THẢO LUẬN \& ĐÁNH GIÁ}{28}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Các kết quả nhận được}{28}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Một số tồn tại}{28}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Hướng phát triển}{28}{subsection.4.3}%
+\contentsline {section}{Tài liệu tham khảo}{29}{section*.23}%
+\contentsline {section}{Phụ lục}{30}{section*.25}%
+\contentsline {section}{Phụ lục hình ảnh}{31}{section*.26}%
+\contentsline {section}{Bảng phân công nhiệm vụ}{32}{section*.27}%
+\contentsline {section}{Link đồ án}{32}{section*.28}%

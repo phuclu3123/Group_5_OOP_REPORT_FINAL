@@ -1,0 +1,27 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{public}\PYG{+w}{ }\PYG{k}{abstract}\PYG{+w}{ }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Person}\PYG{+w}{ }\PYG{p}{:}\PYG{+w}{ }\PYG{n}{ISerializable}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{+w}{ }\PYG{n}{Id}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{get}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{set}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{p}{.}\PYG{n}{Empty}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{+w}{ }\PYG{n}{FullName}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{get}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{set}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{p}{.}\PYG{n}{Empty}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{+w}{ }\PYG{n}{PhoneNumber}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{get}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{set}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{p}{.}\PYG{n}{Empty}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{+w}{ }\PYG{n}{Email}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{get}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{set}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{p}{.}\PYG{n}{Empty}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{public}\PYG{+w}{ }\PYG{k}{abstract}\PYG{+w}{ }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Staff}\PYG{+w}{ }\PYG{p}{:}\PYG{+w}{ }\PYG{n}{Person}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ISalaryCalculable}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{+w}{ }\PYG{n}{StaffID}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{get}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{set}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{p}{.}\PYG{n}{Empty}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{Role}\PYG{+w}{ }\PYG{n}{Role}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{get}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{set}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k+kt}{decimal}\PYG{+w}{ }\PYG{n}{BaseSalary}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{get}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{set}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{c+c1}{// Yêu cầu các lớp con bắt buộc phải triển khai công thức tính lương cụ thể}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{abstract}\PYG{+w}{ }\PYG{k+kt}{decimal}\PYG{+w}{ }\PYG{n+nf}{CalculateSalary}\PYG{p}{();}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{abstract}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{+w}{ }\PYG{n+nf}{GetSalaryBreakdown}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{public}\PYG{+w}{ }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Driver}\PYG{+w}{ }\PYG{p}{:}\PYG{+w}{ }\PYG{n}{Staff}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ITrackable}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{+w}{ }\PYG{n}{LicenseNumber}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{get}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{set}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{p}{.}\PYG{n}{Empty}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{DriverStatus}\PYG{+w}{ }\PYG{n}{DriverStatus}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{get}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{set}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{DeliveryCount}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{get}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{set}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

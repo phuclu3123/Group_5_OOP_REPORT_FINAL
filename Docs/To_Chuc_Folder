@@ -1,0 +1,199 @@
+## 🎯 RECOMMENDED STRUCTURE (Chi Tiết)
+
+### **Logistics.Core**
+
+```
+Logistics.Core/
+│
+├── 📁 Models/
+│   ├── Actors/
+│   │   ├── Person.cs (Base abstract)
+│   │   ├── Admin.cs
+│   │   ├── Driver.cs
+│   │   ├── Dispatcher.cs
+│   │   ├── Customer.cs
+│   │   └── WarehouseStaff.cs
+│   │
+│   ├── Account/                    ✅ (NẾU CÓ)
+│   │   ├── User.cs                 ✅ + SecurityQuestion, SecurityAnswerHash
+│   │   ├── UserRole.cs
+│   │   └── LoginCredentials.cs
+│   │
+│   ├── Business/
+│   │   ├── Order.cs                    ✅ + StatusHistories list
+│   │   ├── OrderDetail.cs
+│   │   ├── Package.cs
+│   │   ├── OrderStatusHistory.cs       ✅ NEW - Tracking timeline
+│   │   ├── DeliveryRoute.cs
+│   │   ├── ShipmentLog.cs
+│   │   ├── ProblemReport.cs
+│   │   ├── Transaction.cs
+│   │   └── Vehicle.cs                 ✅ + MaxWeightCapacity, MaxVolumeCapacity
+│   │
+│   ├── Infrastructure/
+│   │   ├── Warehouse.cs
+│   │   ├── WarehouseLocation.cs
+│   │   ├── Engine.cs
+│   │   ├── Equipment.cs
+│   │   └── MaintenanceLog.cs
+│   │
+│   ├── Common/
+│   │   ├── Enums.cs
+│   │   ├── Constants.cs
+│   │   ├── Address.cs
+│   │   └── GeoPoint.cs
+│   │
+│   └── Interfaces/
+│       ├── ITrackable.cs
+│       ├── ISalaryCalculable.cs
+│       ├── IReportable.cs
+│       ├── IOrderService.cs
+│       ├── IAuthService.cs
+│       ├── IDeliveryService.cs
+│       └── IRepository.cs
+│
+├── 📁 Mappings/
+│   ├── CustomerMappingExtensions.cs
+│   ├── DriverMappingExtensions.cs
+│   ├── OrderMappingExtensions.cs
+│   ├── VehicleMappingExtensions.cs
+│   └── WarehouseMappingExtensions.cs
+│
+├── 📁 DataAccess/
+│   ├── Interfaces/
+│   │   └── IRepository.cs
+│   ├── JsonRepository.cs           ✅ (JSON base class - Có xử lý Thread-safety / Locking tranh chấp file)
+│   ├── DataSeeder.cs               ✅ (Seed Data: Kiểm tra nếu các file .json chưa có -> Tạo file rỗng, list Users trống -> Tự động thêm admin/admin123)
+│   ├── RepositoryFactory.cs        ✅
+│   ├── OrderRepository.cs          ✅ (Specialized)
+│   ├── UserRepository.cs           ✅ (Specialized)
+│   ├── VehicleRepository.cs        ✅ (Specialized)
+│   ├── WarehouseRepository.cs      ✅ (Specialized)
+│   ├── JsonHelper.cs               ✅ (Serialize/Deserialize - Có cơ chế khóa tĩnh hoặc ReaderWriterLockSlim)
+│   └── JsonConstants.cs            ✅
+│
+├── 📁 DTOs/
+│   ├── CustomerDTO.cs
+│   ├── DriverDTO.cs
+│   ├── OrderDTO.cs
+│   ├── RouteDTO.cs
+│   ├── VehicleDTO.cs
+│   └── WarehouseDTO.cs
+│
+├── 📁 Services/
+│   ├── OrderService.cs
+│   ├── DeliveryService.cs          ✅ + AssignOrderToVehicle() + Capacity check
+│   ├── DispatchService.cs
+│   ├── WarehouseService.cs
+│   ├── RouteOptimizationService.cs
+│   ├── AuthService.cs              ✅ + ValidateSecurityAnswer(), ResetPassword()
+│   ├── ReportService.cs            ✅ NEW - Invoice + Statistics
+│   ├── StandardShippingFeeStrategy.cs
+│   ├── ExpressShippingFeeStrategy.cs
+│   └── Interfaces/
+│       └── IShippingFeeStrategy.cs
+│
+├── 📁 Exceptions/
+│   ├── LogisticsException.cs       (Base)
+│   ├── InvalidOrderException.cs
+│   ├── InsufficientCapacityException.cs  ✅ USED in DeliveryService
+│   ├── DriverNotAvailableException.cs
+│   ├── VehicleNotAvailableException.cs
+│   ├── WarehouseCapacityExceededException.cs
+│   ├── ValidationException.cs
+│   ├── TransactionFailedException.cs
+│   └── OrderCancellationException.cs
+│
+├── 📁 Validations/                 ✅ (IMPORTANT)
+│   ├── IValidator.cs
+│   ├── ValidationResult.cs
+│   ├── PersonValidator.cs
+│   ├── OrderValidator.cs
+│   ├── PackageValidator.cs
+│   ├── AddressValidator.cs
+│   ├── DriverValidator.cs
+│   └── StaffValidator.cs
+│
+├── 📁 Utilities/
+│   ├── SessionManager.cs           ✅ NEW - Quản lý phiên đăng nhập (Lưu CurrentUser, trạng thái IsLoggedIn)
+│   ├── PasswordHasher.cs
+│   ├── DateTimeHelper.cs
+│   ├── StringHelper.cs
+│   └── Constants.cs
+│
+└── Logistics.Core.csproj
+```
+
+### **Logistics.WinFormsUI**
+
+```
+Logistics.WinFormsUI/
+│
+├── 📁 Data/                        ✅ (JSON files - Newtonsoft.Json)
+│   ├── users.json
+│   ├── orders.json
+│   ├── vehicles.json
+│   ├── warehouse.json
+│   ├── drivers.json
+│   ├── customers.json
+│   ├── admins.json
+│   └── Default/
+│       └── (Initial/template data)
+│
+├── 📁 Forms/                       ✅ (Main screens)
+│   ├── FrmSplash.cs               (Optional - Loading screen)
+│   ├── FrmLogin.cs                (Login - validate username/password)
+│   ├── FrmRegister.cs             (Register - ask security question)
+│   ├── FrmForgotPassword.cs       (Forgot Password - Q&A flow) ✅ UPDATED
+│   ├── FrmChangePassword.cs       (Change Password)
+│   ├── FrmMain.cs                 (Main menu - Kiểm quyền hiển thị nút dựa vào SessionManager)
+│   ├── FrmOrder.cs                (Order management + Timeline) ✅ + OrderStatusHistory
+│   ├── FrmTracking.cs             (Track with timeline)
+│   ├── FrmDispatch.cs             (Vehicle dispatch + Capacity check) ✅ UPDATED
+│   ├── FrmDriver.cs               (Driver management)
+│   ├── FrmVehicle.cs              (Vehicle management)
+│   ├── FrmWarehouse.cs            (Warehouse management)
+│   ├── FrmDashboard.cs            ✅ NEW - Statistics & Charts
+│   ├── FrmInvoice.cs              ✅ NEW - Invoice Preview + Export
+│   ├── FrmReport.cs               (Reports - enhanced)
+│   └── FrmSettings.cs             (Settings)
+│
+├── 📁 UserControls/               ✅ (Reusable components)
+│   ├── ucVehicleCard.cs
+│   ├── ucOrderCard.cs
+│   ├── ucDriverCard.cs
+│   ├── ucSearchPanel.cs
+│   ├── ucStatusBadge.cs
+│   └── ucOrderTimeline.cs         ✅ NEW - Timeline like Shopee/GHTK
+│
+├── 📁 Utilities/                  ✅ (Helper methods)
+│   ├── DependencyContainer.cs     ✅ NEW - Cấu hình DI (ServiceLocator) quản lý khởi tạo các Services/Repos
+│   ├── FormHelper.cs              (Show/Hide, Center, etc.)
+│   ├── UIHelper.cs                (Xử lý DataGridView binding chuẩn mượt với BindingList<T> và BindingSource)
+│   ├── FilePathHelper.cs          (JSON file paths)
+│   └── ExportHelper.cs            ✅ NEW (PDF/Excel export)
+│
+├── 📁 Extensions/                 ⚠️ (Optional)
+│   ├── ControlExtensions.cs       (Extension methods for controls)
+│   └── DataGridViewExtensions.cs  (DataGridView helpers)
+│
+├── Styles/                        ⚠️ (Optional)
+│   ├── Colors.cs
+│   ├── Fonts.cs
+│   └── Themes.cs
+│
+├── 📁 Resources/                  ✅ (Images, icons)
+│   ├── Icons/
+│   ├── Images/
+│   └── Styles/
+│
+├── AppSettings.cs                 ✅ (Configuration)
+│   // JSON file path, default settings, etc.
+│
+├── Program.cs                     ✅ (Entry point)
+│   // Initialize paths, Cấu hình DI (Microsoft.Extensions.DependencyInjection), DataSeeder.Seed(), run login form
+│
+└── Logistics.WinFormsUI.csproj
+```
+
+---
