@@ -121,6 +121,7 @@ Hệ thống được thiết kế với phân quyền và phân công nhiệm v
 2.  **Thành viên 2**: Phát triển lõi vận chuyển (`Order`, `Package`, `DeliveryRoute`, `DeliveryTrip`) và các chiến lược tính phí (`IShippingFeeStrategy`).
 3.  **Thành viên 3**: Phát triển lõi cơ sở hạ tầng (`Warehouse`, `WarehouseLocation`, `Equipment`, `Vehicle`, `Engine`, `MaintenanceLog`), Xây dựng giao diện Windows Forms (`Logistics.WinFormsUI`), tích hợp phân quyền chức năng và viết kịch bản kiểm thử (`Logistics.SmokeTests`).
 
+---
 ## 🚀 Hướng Dẫn Cài Đặt & Chạy Ứng Dụng
 
 ### Yêu cầu hệ thống
