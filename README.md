@@ -101,9 +101,6 @@ Cuoi_ky_OOP/
 | **Strategy Pattern** | `IShippingFeeStrategy` và các lớp triển khai | Thay đổi linh hoạt chiến lược tính phí giao hàng (Standard vs. Express) mà không làm ảnh hưởng đến mã nguồn lớp `Order`. |
 | **Factory Method** | `RepositoryFactory.CreateRepository<T>()` | Đóng gói logic khởi tạo các Repository cụ thể tại một điểm duy nhất, giúp dễ dàng nâng cấp hệ thống lưu trữ sau này. |
 | **Observer Pattern** | `Order.OnStatusChanged` (Event & Delegate) | Gửi thông báo tự động và ghi nhật ký hành trình (`ShipmentLog`) ngay khi trạng thái của đơn hàng thay đổi. |
-| **Singleton-like Manager** | `SessionManager` | Quản lý phiên làm việc đăng nhập hiện tại của người dùng trong suốt thời gian chạy ứng dụng. |
-| **DTO & Mapper** | `DTOs` và `Mappings/*Extensions.cs` | Tách biệt hoàn toàn mô hình dữ liệu nghiệp vụ (Core Models) khỏi dữ liệu hiển thị trên giao diện (UI), tránh rò rỉ thông tin nhạy cảm. |
-
 ---
 
 ## 💾 Cơ Chế Serialization JSON & Bảo Vệ Dữ Liệu An Toàn
