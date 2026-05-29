@@ -121,10 +121,6 @@ Hệ thống được thiết kế với phân quyền và phân công nhiệm v
 2.  **Thành viên 2**: Phát triển lõi vận chuyển (`Order`, `Package`, `DeliveryRoute`, `DeliveryTrip`) và các chiến lược tính phí (`IShippingFeeStrategy`).
 3.  **Thành viên 3**: Phát triển lõi cơ sở hạ tầng (`Warehouse`, `WarehouseLocation`, `Equipment`, `Vehicle`, `Engine`, `MaintenanceLog`), Xây dựng giao diện Windows Forms (`Logistics.WinFormsUI`), tích hợp phân quyền chức năng và viết kịch bản kiểm thử (`Logistics.SmokeTests`).
 
-*(Nhóm có thể bổ sung chi tiết họ tên thành viên tại đây)*
-
----
-
 ## 🚀 Hướng Dẫn Cài Đặt & Chạy Ứng Dụng
 
 ### Yêu cầu hệ thống
@@ -155,6 +151,3 @@ Hệ thống được thiết kế với phân quyền và phân công nhiệm v
     dotnet run --project Logistics.WinFormsUI/Logistics.WinFormsUI.csproj
     ```
 
----
-
-*Chúc các bạn có buổi báo cáo đồ án OOP thành công rực rỡ! 🎉*
