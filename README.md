@@ -7,7 +7,7 @@
 
 > **Đồ án cuối kỳ môn Lập trình hướng đối tượng (OOP)**  
 > **Nhóm thực hiện**: Nhóm 5 (Group 5)  
-> **Giảng viên hướng dẫn**: [Tên Giảng Viên]  
+> **Giảng viên hướng dẫn**: TS. Đặng Ngọc Hoàng Thành
 
 ---
 
